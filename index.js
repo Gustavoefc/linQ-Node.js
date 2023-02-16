@@ -54,6 +54,7 @@ process.on('uncaughtException', function (err) {
   console.log('Caught exception: ', err);
 });
 
-app.listen(8080, () => {
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
   console.log('Servidor rodando!')
 });
