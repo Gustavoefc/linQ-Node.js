@@ -1,0 +1,45 @@
+<%- include ('partials/header.ejs') %> <%- include ('partials/navbar.ejs')
+%>
+<body>
+  <br>
+    <div class="container">
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Bem Vindo ao linQ!</h1>
+          <p class="col-md-8 fs-4">
+            Guarde seus links favoritos ou importe eles de forma rápida e simples!
+          </p>
+          <hr class="my-4" />
+          <p>Começe por aqui</p>
+          <a class="btn btn-primary btn-lg" href="/admin/links/new" role="button">Guardar Link</a>
+          <a class="btn btn-primary btn-lg" href="/admin/links/new-web-link" role="button">Importar Link</a>
+          <br />
+        </div>
+      </div>
+      <div class="card text-center">
+        <br>
+      <h1>Veja seus links salvos</h1>
+        <hr><br>
+        <h3>Ultimos 3 salvos</h3>
+        <br><br>
+        <ol class="list-group list-group-numbered">
+          
+          <% links.forEach(link => { %>
+
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold"><%= link.label %></div>
+              <p class="card-text"><a style="color: gray" target="_blank" href="<%= link.url %>">Ir para o site</a></p>
+            </div>
+          </li>
+
+          <% }) %>
+        </ol>
+        <br>
+      <a href="/admin/links" class="btn btn-primary">Ver Todos</a>
+      </div>
+    </div>
+    
+</body>
+
+<%- include ('partials/footer.ejs') %>

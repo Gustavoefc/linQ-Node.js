@@ -1,0 +1,27 @@
+<%- include ('../../partials/header.ejs') %> <%- include
+('../../partials/navbar.ejs') %>
+<div class="container">
+  <hr />
+  <div class="card">
+    <div class="card-header">
+      <h2>Edição de Link</h2>
+    </div>
+    <div class="card-body">
+      <form method="post" action="/links/update">
+        <input class="form-control" type="text" name="label" value="<%= link.label %>"
+        />
+        <br>
+        <input class="form-control" name="url" id="url" value="<%= link.url %>">
+        <br>
+        
+
+        <br>
+        <input type="hidden" name="id" value="<%= link.id %>" >
+        <button class="btn btn-success">Atualizar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="content" style="display: none"></div>
+<%- include ('../../partials/footer.ejs') %>

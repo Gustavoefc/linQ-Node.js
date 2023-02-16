@@ -1,0 +1,23 @@
+<%- include ('../../partials/header.ejs') %> <%- include ('../../partials/navbar.ejs')
+%>
+<body>
+  <br>
+    <div class="container">
+      <form method="post" action="/links/web-save">
+        <div class="mb-3">
+          <h1>IMPORTE SEU LINK</h1>
+          <hr>
+          <label for="link title" class="form-label">Link do site</label>
+          <input type="text" id="link" name="link" class="form-control" >
+          <div class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <input type="text" hidden id="title" name="title" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Importar</button>
+      </form>
+    </div>
+    
+</body>
+
+<%- include ('../../partials/footer.ejs') %>

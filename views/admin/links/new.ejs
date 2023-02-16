@@ -1,0 +1,25 @@
+<%- include ('../../partials/header.ejs') %> <%- include ('../../partials/navbar.ejs')
+%>
+<body>
+  <br>
+    <div class="container">
+      <form method="post" action="/links/save">
+        <div class="mb-3">
+          <h1>COMO GOSTARIA DE SALVAR SEU LINK?</h1>
+          <hr>
+          <label for="link title" class="form-label">Titulo do link</label>
+          <input type="text" id="title" name="title" class="form-control" >
+          <div class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="link url" class="form-label">Link</label>
+          <input type="text" id="link" name="link" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </form>
+      
+    </div>
+    
+</body>
+
+<%- include ('../../partials/footer.ejs') %>

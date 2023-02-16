@@ -1,0 +1,82 @@
+<%- include ('../../partials/header.ejs') %> <%- include
+('../../partials/navbar.ejs') %>
+<div class="container">
+  <hr />
+  <h2>Todos os Links</h2>
+  <a class="btn btn-primary" href="/admin/links/new">Criar novo link</a>
+  <br>
+ <% if(create != '') { %>
+  <br>
+  <div class="alert alert-primary" role="alert">
+    Seu link foi salvo com sucesso!
+  </div>
+  <% } %>
+  <% if(importar != '') { %>
+    <br>
+    <div class="alert alert-primary" role="alert">
+        Seu link foi importado com sucesso!
+    </div>
+    <% } %>
+  <% if(edit != '') { %>
+    <br>
+    <div class="alert alert-primary" role="alert">
+        Seu link foi editado com sucesso!
+    </div>
+  <% } %>
+  <% if(del != '') { %>
+    <br>
+    <div class="alert alert-danger" role="alert">
+        Seu link foi removido com sucesso!
+    </div>
+  <% } %>
+
+
+  <hr />
+    <div id="cards" style="display: flex; gap: 1rem; flex-wrap: wrap">
+        <% links.forEach(data => { %>
+    <div class="card" style="width: 15.4rem; 
+      border-radius: 1.25rem;
+      background: #ffffff;
+      box-shadow:  .3125rem .3125rem .625rem #e6e6e6,
+      -0.3125rem -0.3125rem .625rem #ffffff;">
+      <br>
+        <div class="card-body">
+          <div style="height: 9.375rem">
+            <h5 class="card-title"><%= data.label %></h5>
+            <p class="card-text"><a style="color: gray" target="_blank" href="<%= data.url %>">Ir para o site</a></p>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem">
+          <a href="/admin/links/edit/ <%= data.id %>" class="btn btn-warning" >Editar</a>
+        <form
+          method="post"
+          action="/links/delete"
+          style="display: inline"
+          onsubmit="confirmarDelete(event, this)">
+          <input type="hidden" name="id" value=" <%= data.id %>" />
+          <button class="btn btn-danger">Remover</button>
+        </form>
+        </div>
+
+     
+
+        </div>
+      </div>
+      <% }) %>
+      </div>
+  
+
+</div>
+<%- include ('../../partials/footer.ejs') %>
+
+<script>
+
+
+  function confirmarDelete(event, form) {
+    event.preventDefault()
+    let decision = confirm('Você quer deletar esse link?')
+    if (decision) {
+      form.submit()
+    }
+  }
+</script>
