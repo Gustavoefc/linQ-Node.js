@@ -104,7 +104,7 @@ router.post('/links/web-save', async (req, res) => {
 
   let link = req.body.link;
 
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   await page.goto(link);
 
