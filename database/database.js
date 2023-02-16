@@ -1,9 +1,8 @@
 const Sequelize = require('sequelize');
 
-const connection = new Sequelize('linq', 'root', '335490Gu', {
-  host: 'localhost',
-  dialect: 'mysql',
-  timezone: '-03:00'
-})
+const connection = new Sequelize({
+  dialect: 'sqlite',
+  storage: './database/database.sqlite'
+});
 
 module.exports = connection

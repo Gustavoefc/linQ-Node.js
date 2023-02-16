@@ -21,6 +21,8 @@
     "mysql2": "^3.1.2",
     "puppeteer": "^19.7.0",
     "sequelize": "^6.28.0",
-    "slugify": "^1.6.5"
+    "slugify": "^1.6.5",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.4"
   }
 }

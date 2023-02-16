@@ -16,5 +16,6 @@ const Link = connection.define('links', {
   }
 });
 
+Link.sync({ force: false })
 
 module.exports = Link;

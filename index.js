@@ -3,11 +3,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
 const flash = require('connect-flash')
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+
 
 const linksController = require('./links/LinkController');
 
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
 const Link = require('./links/Link');
 
 app.set('view engine', 'ejs');
